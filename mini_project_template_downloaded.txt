@@ -1,0 +1,23 @@
+﻿Mini Project Report Guidelines 
+
+
+
+
+MINI PROJECT
+
+
+The Objective of this mini project is to let the students apply the programming knowledge into a real-world situation /problem and exposed the students how programming skill helps in developing an engineer.
+The Mini project report should follow the following format:
+A. Mini Project Report
+1. Title of Project
+• Name and roll no of students
+• Work distribution among themselves
+2. Introduction
+• Discuss briefly about problem.
+• Discuss minimum 5 existing similar systems and cite sources
+3. Methodology used
+• Provide a detailed flowchart with explanation
+• Discuss about Python construct or packages import in project
+• Code of project
+• Snapshots of outputting....
+4. The project report should have 12 points font size and Times new Roman font

@@ -1,0 +1,543 @@
+MIT World Peace University
+School of Computer Science and Engineering
+Department of Computer Engineering and Technology (Artificial Intelligence and Data Science)
+Software Requirements Specification (SRS) CCA2-Component
+Project Title: [Enter project name]
+Course: Software Engineering & Modelling Code: [AID30180] | Semester: [V] | Section: [2026-27]
+Faculty / Guide: Prof. Kulamala Vinod Kumar
+Version: 1.0 | Date: [DD/MM/YYYY]
+Student Details 
+PRN No.
+	Name of Student
+	Panel
+	Role in Project
+	[ ]
+	[ ]
+	[]
+	Team Lead / Analyst/ Modeller / Designer/ Tester/ Documenter
+	Revision History
+Version
+	Date
+	Author
+	Description of Change
+	Approved By
+	0.1
+	[ ]
+	[ ]
+	Initial draft
+	[ ]
+	1.0
+	[ ]
+	[ ]
+	First baseline
+	[ ]
+	Table of Contents
+1. Introduction
+2. Overall Description
+3. System Features and Functional Requirements
+4. External Interface Requirements
+5. Non-Functional Requirements
+6. System Models (UML diagram level 0,1,2)
+7. Data Requirements
+8. Other Requirements
+9. Requirements Traceability Matrix
+10. Appendices (Glossary, Analysis Models, Issues, References)
+1. Introduction
+1.1 Purpose
+Guidance: State the purpose of this SRS and the software product it describes (name and version). Identify the intended readers.
+This document specifies the software requirements for [Product Name], version [x.x]. It is intended for [developers, testers, project guide, end users].
+1.2 Document Conventions
+Guidance: Explain naming, numbering and priority conventions used in this document.
+* Functional requirements are labelled FR-xx, non-functional requirements NFR-xx, use cases UC-xx, interface requirements IR-xx.
+* Priority levels: High (must have), Medium (should have), Low (nice to have).
+* The words shall (mandatory), should (recommended) and may (optional) are used as defined in IEEE standards.
+1.3 Intended Audience and Reading Suggestions
+Reader
+	Sections to focus on
+	Course instructor / evaluator
+	All sections
+	Developers
+	3, 4, 6, 7
+	Testers
+	3, 5, 9
+	End users / client
+	1, 2, 3
+	1.4 Product Scope
+Guidance: Briefly describe the product, its objectives, benefits and goals. State what is IN scope and what is OUT of scope.
+* In scope: [ ]
+* Out of scope: [ ]
+1.5 Definitions, Acronyms and Abbreviations
+Term
+	Definition
+	SRS
+	Software Requirements Specification
+	UML
+	Unified Modeling Language
+	[Term]
+	[Definition]
+	1.6 References
+Guidance: List every document or web resource cited, using a consistent style (e.g., IEEE).
+1. IEEE Std 830-1998, Recommended Practice for Software Requirements Specifications.
+2. ISO/IEC/IEEE 29148:2018, Systems and software engineering – Life cycle processes – Requirement’s engineering.
+3. [Textbook: e.g., R. S. Pressman, Software Engineering: A Practitioner's Approach].
+4. [Other references]
+2. Overall Description
+2.1 Product Perspective
+Guidance: Is this a new, self-contained product, a replacement, or part of a larger system? Show how it relates to other systems. Include a context diagram (Level-0 DFD) in Section 6 or the appendix.
+[Describe context and origin of the product.]
+2.2 Problem Statement
+Guidance: 4–6 lines on the real-world problem being solved, who is affected and why existing solutions fall short.
+[Problem statement]
+2.3 Product Functions (Summary)
+Guidance: High-level list of major functions only. Details go in Section 3.
+* [Function 1: e.g., User registration and authentication]
+* [Function 2]
+* [Function 3]
+2.4 User Classes and Characteristics
+User Class
+	Description
+	Technical Expertise
+	Frequency of Use
+	Priority
+	[Admin]
+	[ ]
+	[High]
+	[Daily]
+	[High]
+	[Student / Customer]
+	[ ]
+	[Low]
+	[Weekly]
+	[High]
+	[Guest]
+	[ ]
+	[Low]
+	[Occasional]
+	[Low]
+	2.5 Operating Environment
+Item
+	Specification
+	Client platform
+	[Web browser / Android / Windows]
+	Server platform
+	[OS, web server]
+	Programming languages / frameworks
+	[ ]
+	Database
+	[MySQL / PostgreSQL / MongoDB]
+	Hardware minimum
+	[RAM, storage, network]
+	2.6 Design and Implementation Constraints
+Guidance: Regulatory, hardware, language, budget, time, standards or policy limitations.
+* [Constraint 1: e.g., Must be completed within one semester]
+* [Constraint 2: e.g., Use open-source tools only]
+2.7 Assumptions and Dependencies
+* Assumptions: [e.g., Users have internet access]
+* Dependencies: [e.g., Third-party payment API, cloud hosting]
+2.8 Software Process Model
+Guidance: Name the lifecycle model your team follows (Waterfall, Incremental, Agile/Scrum, Spiral) and justify the choice in 2–3 lines.
+[Chosen process model and justification]
+3. System Features and Functional Requirements
+Guidance: Organize by feature, use case or user class. For each feature give a description, stimulus/response and numbered requirements. Every requirement must be verifiable.
+3.1 Feature Template (copy for each feature)
+3.1.1 [Feature Name]
+* Description: [What the feature does and why it matters]
+* Priority: [High / Medium / Low]
+* Actors: [Who triggers or uses it]
+* Stimulus / Response sequence: [User action → system response]
+Req. ID
+	Requirement Statement
+	Priority
+	Source
+	Acceptance Criteria
+	FR-01
+	The system shall allow a user to [action] by [method].
+	High
+	[Client / Faculty]
+	[Measurable test condition]
+	FR-02
+	The system shall [action] when [condition].
+	Medium
+	[ ]
+	[ ]
+	FR-03
+	The system shall display [message] if [error condition].
+	Medium
+	[ ]
+	[ ]
+	3.2 Example (delete after reading)
+Feature: Student Login
+Req. ID
+	Requirement Statement
+	Priority
+	Acceptance Criteria
+	FR-01
+	The system shall authenticate a student using a registered email and password.
+	High
+	Valid credentials open the dashboard within 3 seconds.
+	FR-02
+	The system shall lock an account for 15 minutes after 5 consecutive failed login attempts.
+	Medium
+	The sixth attempt within 15 minutes is rejected with a lock message.
+	FR-03
+	The system shall allow password reset via an emailed one-time link.
+	High
+	The link expires after 30 minutes and works only once.
+	3.3 Feature List
+Feature ID
+	Feature Name
+	Related Use Cases
+	Related Requirements
+	F-01
+	[ ]
+	UC-01
+	FR-01 to FR-05
+	F-02
+	[ ]
+	UC-02, UC-03
+	FR-06 to FR-10
+	4. External Interface Requirements
+4.1 User Interfaces
+Guidance: Describe screens, navigation, layout standards, error message style. Attach wireframes or mock-ups in the appendix.
+ID
+	Screen / Interface
+	Description
+	Wireframe Ref.
+	IR-01
+	[Login page]
+	[Fields, buttons, validation]
+	Fig. A-1
+	IR-02
+	[Dashboard]
+	[ ]
+	Fig. A-2
+	4.2 Hardware Interfaces
+[Devices, ports, sensors, printers, etc. State "None" if not applicable.]
+4.3 Software Interfaces
+Software / Service
+	Version
+	Purpose
+	Data Exchanged
+	[Database]
+	[ ]
+	[Storage]
+	[ ]
+	[External API]
+	[ ]
+	[ ]
+	[JSON over HTTPS]
+	4.4 Communication Interfaces
+[Protocols (HTTP/HTTPS, SMTP, WebSocket), message formats, encryption, network standards.]
+5. Non-Functional Requirements
+Guidance: Make each requirement measurable. Avoid vague words such as "fast", "user-friendly" or "secure" without a metric.
+5.1 Performance Requirements
+ID
+	Requirement
+	Measure
+	NFR-01
+	Pages shall load within [3] seconds under normal load.
+	Response time ≤ 3 s
+	NFR-02
+	The system shall support [100] concurrent users.
+	Load test result
+	5.2 Security Requirements
+ID
+	Requirement
+	NFR-03
+	Passwords shall be stored using salted hashing (e.g., bcrypt).
+	NFR-04
+	Role-based access control shall restrict features by user class.
+	NFR-05
+	All data in transit shall use HTTPS/TLS.
+	5.3 Safety and Privacy Requirements
+[Data protection, consent, retention policy, applicable law (e.g., India's DPDP Act, 2023).]
+5.4 Software Quality Attributes
+Attribute
+	Requirement
+	Measure
+	Reliability
+	[Availability 99%]
+	[Uptime]
+	Usability
+	[New user completes task in ≤ 5 minutes]
+	[Usability test]
+	Maintainability
+	[Modular code, documented APIs]
+	[Code review checklist]
+	Portability
+	[Runs on Chrome, Firefox, Edge]
+	[Cross-browser test]
+	Scalability
+	[Handle 2× growth without redesign]
+	[ ]
+	5.5 Business Rules
+ID
+	Rule
+	BR-01
+	[e.g., A student may borrow at most 3 books at a time.]
+	BR-02
+	[ ]
+	6. System Models (UML and Analysis Models)
+Guidance: This section is the core of the Modelling component. Draw diagrams with draw.io, StarUML, Visual Paradigm, Lucidchart or PlantUML, insert them as images, number every figure and write a short explanation under each. Every diagram must be consistent with the requirements in Section 3.
+6.1 Context Diagram and Data Flow Diagrams
+* Figure 6.1: Context diagram (Level-0 DFD): [insert image]
+* Figure 6.2: Level-1 DFD: [insert image]
+* Explanation: [External entities, processes, data stores and flows]
+6.2 Use Case Model
+Figure 6.3: Use case diagram: [insert image]
+Actor list
+Actor
+	Type (Primary / Secondary)
+	Description
+	[ ]
+	Primary
+	[ ]
+	Use case description template (one per use case)
+Field
+	Details
+	Use Case ID / Name
+	UC-01 / [Name]
+	Primary Actor
+	[ ]
+	Brief Description
+	[ ]
+	Preconditions
+	[ ]
+	Trigger
+	[ ]
+	Main Success Scenario
+	1. [Actor does…] 2. [System responds…] 3. [ ]
+	Alternate Flows
+	2a. [If…, then…]
+	Exception Flows
+	3a. [Error handling]
+	Postconditions
+	[ ]
+	Includes / Extends
+	[UC-xx]
+	Related Requirements
+	FR-01, FR-02
+	6.3 Activity Diagram
+Figure 6.4: Activity diagram for [key process] with swimlanes: [insert image]
+[Explain the workflow, decisions, forks and joins.]
+6.4 Class Diagram (Domain / Analysis Model)
+Figure 6.5: Class diagram: [insert image]
+Class
+	Attributes
+	Key Operations
+	Relationships
+	[User]
+	[id, name, email]
+	[login(), logout()]
+	[1 to many Orders]
+	[ ]
+	[ ]
+	[ ]
+	[ ]
+	Guidance: Show multiplicity, association, aggregation, composition and generalization correctly.
+6.5 Sequence Diagrams
+Figure 6.6: Sequence diagram for [UC-01]: [insert image]
+Figure 6.7: Sequence diagram for [UC-02]: [insert image]
+[Explain object interactions, messages and return values.]
+6.6 State Machine Diagram
+Figure 6.8: State diagram for [object, e.g., Order / Account]: [insert image]
+State
+	Entry Event
+	Exit Event / Transition
+	Guard Condition
+	[ ]
+	[ ]
+	[ ]
+	[ ]
+	6.7 Component and Deployment Diagrams (optional / advanced)
+Figure 6.9: Component diagram: [insert image]
+Figure 6.10: Deployment diagram: [insert image]
+7. Data Requirements
+7.1 Entity Relationship Diagram
+Figure 7.1: ER diagram: [insert image]
+7.2 Data Dictionary
+Entity / Table
+	Attribute
+	Data Type
+	Size
+	Constraint
+	Description
+	[User]
+	user_id
+	INT
+	–
+	PK, Auto-increment
+	Unique identifier
+	[User]
+	email
+	VARCHAR
+	100
+	Unique, Not null
+	Login email
+	[ ]
+	[ ]
+	[ ]
+	[ ]
+	[ ]
+	[ ]
+	7.3 Data Retention, Backup and Integrity
+[Backup frequency, retention period, validation rules.]
+8. Other Requirements
+* Legal / Regulatory: [ ]
+* Localisation / Language: [e.g., English and Marathi / Hindi UI]
+* Accessibility: [e.g., WCAG 2.1 AA]
+* Installation and Deployment: [ ]
+* Documentation and Training: [User manual, help pages]
+9. Requirements Traceability Matrix
+Guidance: Link each requirement to its source, design element and test case. Update the matrix whenever requirements change.
+Req. ID
+	Requirement Summary
+	Use Case
+	Design Element (Class / Diagram)
+	Test Case ID
+	Status
+	FR-01
+	[ ]
+	UC-01
+	Fig 6.5 – User class
+	TC-01
+	Planned
+	FR-02
+	[ ]
+	UC-01
+	Fig 6.6
+	TC-02
+	Planned
+	NFR-01
+	[ ]
+	–
+	Fig 6.10
+	TC-10
+	Planned
+	10. Appendices
+Appendix A: Glossary
+[Additional domain terms not listed in Section 1.5.]
+Appendix B: UI Wireframes and Mock-ups
+[Figure A-1, A-2 …]
+Appendix C: Requirements Elicitation Record
+Technique
+	Participants
+	Date
+	Key Findings
+	[Interview / Survey / Observation / Document analysis]
+	[ ]
+	[ ]
+	[ ]
+	Appendix D: Analysis Models and Prioritization
+[MoSCoW table, risk analysis, feasibility study (technical, economic, operational).]
+Requirement
+	Must
+	Should
+	Could
+	Won't (this release)
+	[ ]
+	✔
+	
+
+	
+
+	
+
+	Appendix E: To Be Determined (TBD) List
+No.
+	Open Issue
+	Owner
+	Due Date
+	1
+	[ ]
+	[ ]
+	[ ]
+	Appendix F: Sample Test Cases
+TC ID
+	Linked Req.
+	Input / Steps
+	Expected Result
+	Actual Result
+	Pass / Fail
+	TC-01
+	FR-01
+	[ ]
+	[ ]
+	[ ]
+	[ ]
+	11. Evaluation Rubric and Submission Checklist
+11.1 Suggested Evaluation Rubric (for faculty)
+Criteria
+	Excellent (4)
+	Good (3)
+	Fair (2)
+	Poor (1)
+	Weight
+	Introduction and scope clarity
+	Complete, precise
+	Minor gaps
+	Vague
+	Missing
+	10%
+	Quality of functional requirements
+	Testable, unique, numbered
+	Mostly testable
+	Ambiguous
+	Unclear
+	20%
+	Non-functional requirements
+	Measurable, complete
+	Mostly measurable
+	Generic
+	Missing
+	10%
+	UML model correctness and notation
+	All diagrams correct
+	Minor errors
+	Several errors
+	Largely incorrect
+	20%
+	Consistency and traceability
+	Fully traceable
+	Mostly
+	Partial
+	None
+	10%
+	Data model and dictionary
+	Complete
+	Minor gaps
+	Incomplete
+	Missing
+	10%
+	Formatting, language and references
+	Professional
+	Good
+	Average
+	Poor
+	10%
+	NPTEL/Coursera/Udemy 
+	Confident, accurate
+	Good
+	Hesitant
+	Unable to explain
+	10%
+	11.2 Student Self-Check Before Submission
+* ☐ Title page, team details and revision history are complete
+* ☐ Every requirement has a unique ID, priority and acceptance criteria
+* ☐ No vague words (fast, easy, good, etc.) without measurable limits
+* ☐ All figures are numbered, captioned and explained
+* ☐ Use cases, class, sequence and activity diagrams are mutually consistent
+* ☐ Traceability matrix covers all functional requirements
+* ☐ Glossary covers all technical terms
+* ☐ References follow one consistent style
+* ☐ Document is proofread and plagiarism-free
+* ☐ NPTEL/Coursera/Udemy etc.
+11.3 NPTEL/Coursera/Udemy
+* Paste certificate or Screen Shot of the course attended and completed.
+* Course title and date must be clearly mention.
+11.4 Common Mistakes to Avoid
+1. Mixing design or implementation details into requirements (say what, not how).
+2. Writing compound requirements ("and/or") that cannot be tested individually.
+3. Drawing diagrams that do not match the written use cases.
+4. Leaving out non-functional requirements.
+5. Using inconsistent names for the same entity across sections.

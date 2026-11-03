@@ -1,0 +1,300 @@
+================================================================================
+                    PROJECT HOLOHAND — GESTURE REFERENCE MANUAL
+         Complete Master Guide to Hand Gestures Across All 4 Operating Modes
+================================================================================
+Physical Hardware : AI-Thinker ESP32-CAM (OV2640 Sensor) over Wi-Fi MJPEG Stream
+Desktop Backend   : Python 3.10+ | OpenCV | MediaPipe Hands | PyAutoGUI | PyCaw
+Display Modes     : 1920x1080 Mission Control Dashboard & Full-Frame Direct AR HUD
+================================================================================
+
+TABLE OF CONTENTS:
+  1. Operating Modes Overview & How to Switch
+  2. Category 1 — Mode A: Hologram Control (Desktop Automation & Media)
+  3. Category 2 — Mode B: Camera Studio (Photo, Video & Hardware Flash)
+  4. Category 3 — Mode C: Music Conductor (Interactive Audio Station)
+  5. Category 4 — Mode D: Virtual Air-Mouse (Full Desktop OS Hand Control)
+  6. Universal Global Gestures (Works in Any Mode)
+  7. Keyboard Shortcuts & Quick Navigation Reference
+  8. Tips for Perfect Gesture Tracking & Lighting
+
+================================================================================
+1. OPERATING MODES OVERVIEW & HOW TO SWITCH
+================================================================================
+
+Project HoloHand features four distinct, mutually exclusive operating modes.
+Operating modes prevent accidental action conflicts (for example, taking a photo
+when you only meant to change the song).
+
+HOW TO SWITCH MODES INSTANTLY:
+  - Press key '1' : Switch to Mode A (Hologram Control)
+  - Press key '2' : Switch to Mode B (Camera Studio)
+  - Press key '3' : Switch to Mode C (Music Conductor)
+  - Press key '4' or 'M' : Switch to Mode D (Virtual Air-Mouse)
+  - Or show Two-Hand Open Palm to summon the Holographic Virtual Control Panel,
+    hover over any mode button with your index finger, and pinch to select!
+
+================================================================================
+2. CATEGORY 1 — MODE A: HOLOGRAM CONTROL
+   (Desktop Automation, Presentation Slides, Media & System Volume)
+================================================================================
+
+Designed for desktop media control, presentation slide shows, and system audio.
+
++-----------------------------+-----------------------+------------------------------------------+
+| GESTURE NAME                | HAND POSTURE / SHAPE  | SYSTEM ACTION EXECUTED                   |
++-----------------------------+-----------------------+------------------------------------------+
+| 1. Open Palm                | All 5 fingers open    | Neutral ready state. Calibrates skeleton.|
+|                             | facing camera         |                                          |
+|                             |                       |                                          |
+| 2. Closed Fist              | All 5 fingers curled  | Toggle Play / Pause for active OS media  |
+|                             | tightly into palm     | (Spotify, YouTube, VLC, Apple Music).    |
+|                             |                       |                                          |
+| 3. Thumb Up                 | Thumb straight UP,    | Media Play / Resume command sent to OS.  |
+|                             | 4 fingers folded      |                                          |
+|                             |                       |                                          |
+| 4. Thumb Down               | Thumb pointing DOWN,  | Media Pause command sent to OS.          |
+|                             | 4 fingers folded      |                                          |
+|                             |                       |                                          |
+| 5. Index Pointing Up        | Index pointing UP,    | Volume UP (+5% discrete step on Windows  |
+|                             | others folded         | master volume and internal synth).       |
+|                             |                       |                                          |
+| 6. Index Pointing Down      | Index pointing DOWN,  | Volume DOWN (-5% discrete step on Windows|
+|                             | others folded         | master volume and internal synth).       |
+|                             |                       |                                          |
+| 7. Optical Caliper Volume   | Thumb and Index tips  | REAL-TIME WINDOWS MASTER SYSTEM VOLUME:  |
+|    (Thumb-Index Distance)   | opposing in C-shape;  | - Fingers Touching  -> 0% Volume (Mute)  |
+|                             | ring & pinky folded   | - Fingers Half-Open -> 50% Volume        |
+|                             |                       | - Fingers Spread    -> 100% Volume (Max) |
+|                             |                       | Modulates Windows volume directly live!  |
+|                             |                       |                                          |
+| 8. Peace Sign (V-Shape)     | Index & Middle UP in  | Mute / Unmute Media Toggle. Also acts as |
+|                             | V, thumb/ring/pinky in| Previous Presentation Slide in Keynote.  |
+|                             |                       |                                          |
+| 9. Swipe Right (-->)        | Quick hand movement   | Next Track (>>|) & Next Tab (Ctrl+Tab)   |
+|                             | from Left to Right    | in active browser or desktop app.        |
+|                             |                       |                                          |
+| 10. Swipe Left (<--)        | Quick hand movement   | Prev Track (|<<) & Prev Tab (Ctrl+Shift+ |
+|                             | from Right to Left    | Tab) in active browser or desktop app.   |
+|                             |                       |                                          |
+| 11. Rock Horns (🤘)         | Index & Pinky UP,     | Toggle ESP32-CAM Onboard Hardware        |
+|                             | Middle & Ring folded  | Flashlight ON / OFF over Wi-Fi.          |
++-----------------------------+-----------------------+------------------------------------------+
+
+================================================================================
+3. CATEGORY 2 — MODE B: CAMERA STUDIO
+   (High-Resolution Photography, Video Recording & Hardware Flashlight)
+================================================================================
+
+Turns your ESP32-CAM into a hands-free gesture-operated camera workstation.
+Captured files are saved cleanly with zero HUD overlays into:
+  - Photos: x:\ESP\captures\photos\holohand_photo_YYYYMMDD_HHMMSS.jpg
+  - Videos: x:\ESP\captures\videos\holohand_video_YYYYMMDD_HHMMSS.mp4
+
++-----------------------------+-----------------------+------------------------------------------+
+| GESTURE NAME                | HAND POSTURE / SHAPE  | CAMERA ACTION EXECUTED                   |
++-----------------------------+-----------------------+------------------------------------------+
+| 1. Peace Sign (✌️)          | Index & Middle UP in  | Instant Photo Capture: Captures clean,   |
+|                             | V, thumb/ring/pinky in| uncompressed frame with shutter flash.   |
+|                             |                       |                                          |
+| 2. Open Palm -> Closed Fist | Open palm held, then  | 3-Second Self-Timer Photo: Triggers      |
+|    (Sequential Timer)       | closed into a fist    | holographic 3-2-1 countdown ring and     |
+|                             | within 2.2 seconds    | captures high-res photo automatically.   |
+|                             |                       |                                          |
+| 3. Three Fingers Up (3️⃣)    | Index, Middle & Ring  | Toggle Video Recording Start / Stop.     |
+|                             | extended, pinky closed| Enqueues frames asynchronously into MP4. |
+|                             |                       |                                          |
+| 4. Peace Sign (In REC Mode) | Peace sign while REC  | Still Snap During Video: Captures still  |
+|                             | indicator is active   | photo without interrupting active video. |
+|                             |                       |                                          |
+| 5. Rock Horns (🤘)         | Index & Pinky UP,     | Flashlight Toggle: Turns physical        |
+|                             | Middle & Ring folded  | ESP32-CAM high-power LED flash ON / OFF. |
+|                             |                       |                                          |
+| 6. Torch L-Shape (🔦)       | Thumb & Index at 90°, | Torch Mode: Alternative gesture to fire  |
+|                             | Middle/Ring/Pinky in  | the physical hardware illumination LED.  |
+|                             |                       |                                          |
+| 7. Keyboard 'C' / 'R' / 'F' | Direct keyboard keys  | Manual shortcuts for Instant Photo (C),  |
+|                             |                       | Video Rec (R), and Flashlight Toggle (F).|
++-----------------------------+-----------------------+------------------------------------------+
+
+================================================================================
+4. CATEGORY 3 — MODE C: MUSIC CONDUCTOR
+   (Interactive Procedural Synthesizer, Real-Time Audio Conductor & Spatial Volume)
+================================================================================
+
+Directly conducts your local audio playlist or the built-in ambient procedural
+sound synthesizer with real-time audio modulation and visual soundwaves.
+
++-----------------------------+-----------------------+------------------------------------------+
+| GESTURE NAME                | HAND POSTURE / SHAPE  | MUSIC CONDUCTOR ACTION EXECUTED          |
++-----------------------------+-----------------------+------------------------------------------+
+| 1. Thumb Up                 | Thumb straight UP,    | Play / Resume Current Music Track.       |
+|                             | 4 fingers folded      |                                          |
+|                             |                       |                                          |
+| 2. Thumb Down               | Thumb pointing DOWN,  | Pause Current Music Track.               |
+|                             | 4 fingers folded      |                                          |
+|                             |                       |                                          |
+| 3. Closed Fist              | All 5 fingers folded  | Toggle Play / Pause playback.            |
+|                             |                       |                                          |
+| 4. Index Pointing Up        | Index pointing UP,    | Master Volume UP (+5% discrete step on   |
+|                             | others folded         | both Windows system audio and synth).    |
+|                             |                       |                                          |
+| 5. Index Pointing Down      | Index pointing DOWN,  | Master Volume DOWN (-5% discrete step on |
+|                             | others folded         | both Windows system audio and synth).    |
+|                             |                       |                                          |
+| 6. Optical Caliper Volume   | Distance between      | REAL-TIME CONTINUOUS VOLUME CONDUCTOR:   |
+|    (Thumb-Index Distance)   | Index & Thumb tips    | Directly modulates Windows OS master     |
+|                             | facing each other;    | audio and music synth in real time:      |
+|                             | ring & pinky curled   | - Fingers touching (0px)  -> 0% Volume   |
+|                             |                       | - Moderate distance       -> 50% Volume  |
+|                             |                       | - Fingers fully spread    -> 100% Volume |
+|                             |                       | Shows glowing Vernier laser line & HUD!  |
+|                             |                       |                                          |
+| 7. Swipe Right (-->)        | Fast hand swipe from  | Next Track in playlist (with audible     |
+|                             | Left to Right         | futuristic whoosh chime).                |
+|                             |                       |                                          |
+| 8. Swipe Left (<--)         | Fast hand swipe from  | Previous Track in playlist (with audible |
+|                             | Right to Left         | futuristic whoosh chime).                |
+|                             |                       |                                          |
+| 9. Peace Sign (✌️)          | Index & Middle UP     | Mute / Unmute Audio Toggle.              |
+|                             |                       |                                          |
+| 10. Rock Horns (🤘)         | Index & Pinky UP      | Flashlight Toggle: Fires ESP32-CAM LED.  |
++-----------------------------+-----------------------+------------------------------------------+
+
+================================================================================
+5. CATEGORY 4 — MODE D: VIRTUAL AIR-MOUSE
+   (Full Operating System Hand Control, Sub-Pixel Tracking & Window Navigation)
+================================================================================
+
+Transforms your tracked hand into a complete, zero-latency wireless mouse for
+your laptop or desktop screen (1920x1080) with dynamic dual-exponential
+smoothing, drift-free click anchoring, active deadzones, and window tab switching.
+
++-----------------------------+-----------------------+------------------------------------------+
+| GESTURE NAME                | HAND POSTURE / SHAPE  | OPERATING SYSTEM MOUSE ACTION            |
++-----------------------------+-----------------------+------------------------------------------+
+| 1. Cursor Navigation        | Index finger extended | Moves the Windows OS cursor smoothly     |
+|    (Hover Movement)         | pointing forward;     | across full screen with sub-pixel        |
+|                             | thumb relaxed         | jitter elimination and rapid flick speed.|
+|                             |                       |                                          |
+| 2. Anchored Left Click      | Quick pinch of Thumb  | Left Click: Instantly freezes cursor     |
+|                             | and Index tips        | position on target so finger pinch does  |
+|                             | for LESS than 0.35s   | NOT cause cursor drift; executes Click!  |
+|                             |                       |                                          |
+| 3. Double Click             | Two consecutive quick | Double Click: Launches apps, opens       |
+|                             | pinches (<0.45s apart)| desktop files, selects words in documents|
+|                             |                       |                                          |
+| 4. Left Click & Drag        | Hold pinch of Thumb   | Drag & Drop: Engages left mouse down     |
+|    (Window / File Dragging) | & Index continuously  | lock; move hand to move window/file;     |
+|                             | for MORE than 0.35s   | releases cleanly when pinch is opened.   |
+|                             |                       |                                          |
+| 5. Safety Drag Release      | Close all fingers     | Safety Release: Instantly forces release |
+|                             | into a Closed Fist ✊  | of any active mouse drag or mouse-down.  |
+|                             |                       |                                          |
+| 6. Right Click              | Peace Sign (✌️) OR    | Right Click: Opens Windows context menu, |
+|                             | Thumb + Middle pinch  | right-click file actions, properties.    |
+|                             |                       |                                          |
+| 7. Middle Click             | Three Fingers Up (3️⃣)  | Middle Mouse Click: Opens links in new   |
+|    (Wheel Button)           | (Index + Middle + Ring| tab in Chrome/Edge; closes active tab.   |
+|                             |                       |                                          |
+| 8. Scroll Wheel UP          | Index Pointing        | Smooth Wheel Scroll UP (+120 units)      |
+|                             | Straight UP (☝️)       | for reading web pages and documents.     |
+|                             |                       |                                          |
+| 9. Scroll Wheel DOWN        | Index Pointing        | Smooth Wheel Scroll DOWN (-120 units)    |
+|                             | Straight DOWN (👇)     | for browsing downwards.                  |
+|                             |                       |                                          |
+| 10. Swipe Right (👉)        | Fast hand swipe from  | NEXT TAB (Ctrl + Tab): Instantly         |
+|     (Tab Switch: Next)      | Left to Right         | switches to the next tab in Chrome, Edge,|
+|                             |                       | Firefox, VS Code, and tabbed apps!       |
+|                             |                       |                                          |
+| 11. Swipe Left (👈)         | Fast hand swipe from  | PREVIOUS TAB (Ctrl + Shift + Tab):       |
+|     (Tab Switch: Previous)  | Right to Left         | Instantly switches to the previous tab   |
+|                             |                       | in browsers and tabbed apps!             |
+|                             |                       |                                          |
+| 12. Caliper System Volume   | Thumb and Index in    | Direct Real-Time Windows Master Volume:  |
+|     (Optional in Mouse Mode)| Caliper formation     | Adjusts audio volume without leaving     |
+|                             |                       | the mouse environment.                   |
+|                             |                       |                                          |
+| 13. Rock Horns (🤘)         | Index & Pinky UP      | Flashlight Toggle: Fires ESP32-CAM LED.  |
++-----------------------------+-----------------------+------------------------------------------+
+
+================================================================================
+6. UNIVERSAL GLOBAL GESTURES (WORKS IN ANY MODE)
+================================================================================
+
+1. SEQUENTIAL GESTURE (3-SECOND COUNTDOWN PHOTO):
+   - Hold an Open Palm for ~0.5s, then immediately close into a Closed Fist.
+   - Triggers across ALL modes: a futuristic 3-second animated circular countdown
+     appears with a glowing amber arc and snaps an uncompressed photograph.
+
+2. DUAL-HAND GESTURE (HOLOGRAPHIC COMMAND MATRIX PANEL):
+   - Raise BOTH hands simultaneously in an Open Palm formation.
+   - Toggles the floating Holographic Virtual Control Panel on/off.
+   - Point your index finger to hover over buttons; hold for 0.75s or pinch to click.
+
+3. OPTICAL CALIPER MASTER VOLUME GAUGE:
+   - Form an optical caliper with thumb and index fingers.
+   - Physical finger separation continuously sets the Windows OS master volume
+     in real time (0% when touching to 100% when wide open).
+   - Draws a glowing neon Vernier laser line and right-margin master audio gauge.
+
+4. SWIPE TAB SWITCHING:
+   - Flick hand left-to-right to trigger Next Tab (Ctrl + Tab).
+   - Flick hand right-to-left to trigger Previous Tab (Ctrl + Shift + Tab).
+   - Backwards rolling-window algorithm ensures instant sub-second recognition!
+
+5. HARDWARE FLASHLIGHT CONTROL:
+   - Make the Rock Horns sign (🤘) or Torch L-Shape (🔦) to toggle the ESP32-CAM's
+     onboard high-power LED over Wi-Fi HTTP (`/flash?state=1` / `/flash?state=0`).
+
+================================================================================
+7. KEYBOARD SHORTCUTS & QUICK NAVIGATION REFERENCE
+================================================================================
+
+While the HoloHand application window is focused:
+
+  [MODE SWITCHING]
+    '1'        : Switch to Mode A (Hologram Desktop Control)
+    '2'        : Switch to Mode B (Camera Studio)
+    '3'        : Switch to Mode C (Music Conductor)
+    '4' or 'M' : Switch to Mode D (Virtual Air-Mouse)
+
+  [DISPLAY & LAYOUT]
+    TAB        : Toggle between 1080p Studio Dashboard & Full-Frame Direct AR View
+    'F' / F11  : Toggle Borderless Fullscreen / Windowed Mode (1280x720)
+    'V'        : Cycle Visual Theme (Hologram HUD -> Cyber Scan -> Minimal)
+    'D'        : Toggle Diagnostic Calibration Matrix & Tracking Coordinates
+
+  [ACTIONS & MEDIA]
+    SPACE / 'E': Toggle Desktop Actions Armed / Disarmed (Safety Lock)
+    ESC        : EMERGENCY STOP — Instantly disarms all desktop automation
+    'C'        : Instant Manual Photo Capture
+    'R'        : Toggle Manual Video Recording Start / Stop
+    'T' / 'L'  : Toggle ESP32-CAM Hardware Flashlight ON / OFF
+    'P'        : Toggle Floating Virtual Control Matrix Panel
+    'X'        : Toggle Dry-Run Mode (Test gestures without sending keystrokes)
+    'Q'        : Clean Shutdown (Gracefully closes camera streams & threads)
+
+================================================================================
+8. TIPS FOR PERFECT GESTURE TRACKING & LIGHTING
+================================================================================
+
+1. Camera Distance:
+   Position your hand between 25 cm to 70 cm (10 to 28 inches) from the ESP32-CAM
+   lens for optimal landmark tracking.
+
+2. Background Lighting:
+   Ensure your hand is well-lit from the front. Avoid having strong direct lights
+   or bright windows directly behind your hand, which can create dark silhouettes.
+
+3. Flashlight Usage:
+   The onboard flash LED is ideal in low-light environments, but in normal daylight,
+   keep it OFF to prevent overexposing your hand.
+
+4. Air-Mouse Deadzone:
+   The active interaction box occupies the center 64% of the camera view (18%
+   margin on each side). You only need small, comfortable hand movements in the
+   center of the frame to effortlessly reach all 4 corners of your screen!
+
+================================================================================
+                        PROJECT HOLOHAND — READY TO FLY
+================================================================================
