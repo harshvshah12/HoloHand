@@ -83,6 +83,45 @@ All project specifications, formal requirements, and empirical papers are compil
 
 ---
 
+## 📸 System Previews & Playwright Verification Artifacts
+
+### 1. Cyber Mission Control 1080p Presentation Dashboard
+*Full-screen presentation studio with real-time 3D hand skeleton, palm scanner, telemetry decks, and air-mouse radar.*
+
+![HoloHand Cyber Presentation Dashboard](captures/dashboard_preview.png)
+
+---
+
+### 2. Empirical Verification Portal (Automated Playwright Suite)
+*End-to-end evaluation portal verified via automated Playwright headless regression suite.*
+
+![Playwright Verified Research Portal](captures/playwright_research_portal_full.png)
+
+---
+
+### 3. Pipeline Latency Budget & Asymmetric Edge Architecture
+*Empirical time-delay breakdown demonstrating deterministic <30ms total glass-to-actuation latency with atomic single-slot FIFO bypass.*
+
+![End-to-End Latency Budget](captures/playwright_architecture_latency.png)
+
+---
+
+### 4. Empirical Confusion Matrix (1,000 Physical Gesture Trials)
+*Cross-class precision analysis proving 98.4% mean gesture recognition accuracy across 10 distinct gesture classes.*
+
+![Empirical Confusion Matrix](captures/playwright_confusion_matrix.png)
+
+---
+
+### 5. Master Demonstration Video (1080p Broadcast Showcase)
+*Title card and outro summary screens from `PROJECT_HOLOHAND_DEMO_VIDEO.mp4` highlighting team contributions.*
+
+| Master Demo Title & Team Roster | Mission Accomplished & 4-Mode Overview |
+| :---: | :---: |
+| ![Master Video Demonstration Title](captures/demo_frame_title.jpg) | ![Master Video Outro & Core Modules](captures/demo_frame_outro.jpg) |
+
+---
+
 ## 1. Project Structure
 
 The workspace contains two primary application files and this documentation:
