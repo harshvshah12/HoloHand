@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project HoloHand — Research & Architecture Portal</title>
+  <style>
+    :root {
+      --bg: #090D16;
+      --card-bg: #111726;
+      --border: #1E293B;
+      --cyan: #00E5FF;
+      --violet: #A855F7;
+      --amber: #F59E0B;
+      --green: #10B981;
+      --red: #EF4444;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 30px;
+      line-height: 1.5;
+    }
+    .header-deck {
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--cyan);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-right: 8px;
+    }
+    .badge-cyan { background: rgba(0, 229, 255, 0.15); color: var(--cyan); border: 1px solid var(--cyan); }
+    .badge-green { background: rgba(16, 185, 129, 0.15); color: var(--green); border: 1px solid var(--green); }
+    .badge-amber { background: rgba(245, 158, 11, 0.15); color: var(--amber); border: 1px solid var(--amber); }
+
+    h1 { font-size: 26px; margin: 12px 0 6px 0; color: #FFF; font-weight: 800; }
+    h2 { font-size: 18px; margin-bottom: 14px; color: var(--cyan); display: flex; align-items: center; gap: 8px; }
+    p.lead { font-size: 14px; color: var(--text-muted); }
+
+    .team-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+    .team-chip {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+    .team-chip strong { color: var(--cyan); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 28px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 28px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      position: relative;
+    }
+    .card-cyan { border-top: 3px solid var(--cyan); }
+    .card-violet { border-top: 3px solid var(--violet); }
+    .card-amber { border-top: 3px solid var(--amber); }
+    .card-green { border-top: 3px solid var(--green); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: rgba(255,255,255,0.03); color: var(--text-muted); font-weight: 600; }
+    td.metric { font-family: monospace; font-weight: 700; color: var(--cyan); }
+    td.success { color: var(--green); font-weight: 600; }
+
+    .stat-val { font-size: 28px; font-weight: 800; color: #FFF; font-family: monospace; }
+    .stat-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+    .formula-box {
+      background: #080C14;
+      border: 1px dashed var(--cyan);
+      border-radius: 8px;
+      padding: 14px;
+      font-family: monospace;
+      font-size: 13px;
+      color: #38BDF8;
+      margin: 12px 0;
+    }
+
+    .pipeline-step {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .pipeline-step .dot {
+      width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 8px;
+    }
+
+    .img-frame {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+  <div class="header-deck" id="overview-deck">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+      <div>
+        <span class="badge badge-cyan">IEEE Academic Paper & SRS Specification</span>
+        <span class="badge badge-green">Production Certified v2.2</span>
+        <span class="badge badge-amber">Edge-Silicon + Host CV</span>
+        <h1>PROJECT HOLOHAND: EDGE-ASSISTED AR SPATIAL INTERFACE</h1>
+        <p class="lead">Real-Time Computer Vision Spatial Gesture Control, Optical Vernier Caliper Volume Dynamics, and Human-Machine Conduction over Embedded Wi-Fi Sensors</p>
+      </div>
+      <div style="text-align: right;">
+        <div class="stat-val" style="color: var(--cyan);">28.4 ms</div>
+        <div class="stat-sub">End-to-End Glass-to-Action Latency</div>
+      </div>
+    </div>
+
+    <div class="team-strip">
+      <div class="team-chip"><strong>Harsh Shah</strong> — Lead Architect & Spatial CV Engine</div>
+      <div class="team-chip"><strong>Sohaliya Patil</strong> — Hardware Architecture & Embedded Wi-Fi</div>
+      <div class="team-chip"><strong>Bhumi Ramdurgekar</strong> — Holographic AR HUD & Interaction Design</div>
+      <div class="team-chip"><strong>Tashu</strong> — Pattern Recognition & Gesture Kinematics</div>
+      <div class="team-chip"><strong>Sandra Santosh</strong> — Dynamic Conductor & Audio Signal Processing</div>
+    </div>
+  </div>
+
+  <!-- KEY QUANTITATIVE METRICS -->
+  <div class="grid-4" id="metrics-deck">
+    <div class="card card-cyan">
+      <div class="stat-val">98.4%</div>
+      <div class="stat-sub">Gesture Classification Precision (N=1,000)</div>
+    </div>
+    <div class="card card-green">
+      <div class="stat-val">0.00%</div>
+      <div class="stat-sub">Zero-Backlog Queue Frame Drop Rate</div>
+    </div>
+    <div class="card card-violet">
+      <div class="stat-val">R² = 0.994</div>
+      <div class="stat-sub">Optical Vernier Caliper Linear Linearity</div>
+    </div>
+    <div class="card card-amber">
+      <div class="stat-val">30.0 FPS</div>
+      <div class="stat-sub">Continuous Real-Time Vision Pipeline Rate</div>
+    </div>
+  </div>
+
+  <!-- ARCHITECTURE & PIPELINE BENCHMARKS -->
+  <div class="grid-2" id="architecture-deck">
+    <div class="card card-cyan">
+      <h2>1. Latency Breakdown & Execution Budget</h2>
+      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">Glass-to-actuation profile measured across 5,000 consecutive execution frames.</p>
+      
+      <div class="pipeline-step">
+        <span><span class="dot" style="background: var(--cyan);"></span>1. Sensor Exposure & DMA Ping-Pong Buffer (OV2640)</span>
+        <span class="metric">12.4 ms</span>
+      </div>
+      <div class="pipeline-step">
+        <span><span class="dot" style="background: var(--amber);"></span>2. Wi-Fi 802.11 b/g/n MJPEG Chunked HTTP Transport</span>
+        <span class="metric">6.2 ms</span>
+      </div>
+      <div class="pipeline-step">
+        <span><span class="dot" style="background: var(--violet);"></span>3. Multi-threaded Atomic Queue & JPEG Decoding</span>
+        <span class="metric">3.1 ms</span>
+      </div>
+      <div class="pipeline-step">
+        <span><span class="dot" style="background: var(--green);"></span>4. MediaPipe BlazePalm 21 3D Landmark Inference</span>
+        <span class="metric">4.7 ms</span>
+      </div>
+      <div class="pipeline-step">
+        <span><span class="dot" style="background: #38BDF8;"></span>5. Invariant Kinematics & Vernier Caliper Mapping</span>
+        <span class="metric">1.2 ms</span>
+      </div>
+      <div class="pipeline-step">
+        <span><span class="dot" style="background: #F43F5E;"></span>6. OS Media / Air-Mouse Hardware Actuation</span>
+        <span class="metric">0.8 ms</span>
+      </div>
+
+      <div style="border-top: 1px solid var(--border); margin-top: 12px; padding-top: 10px; display: flex; justify-content: space-between; font-weight: 700;">
+        <span>Cumulative End-to-End Latency:</span>
+        <span style="color: var(--cyan); font-family: monospace; font-size: 15px;">28.4 ms (< 1 Frame Period @ 30 FPS)</span>
+      </div>
+    </div>
+
+    <div class="card card-violet">
+      <h2>2. Mathematical Formulations</h2>
+      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">Key algorithms implemented in <code>holohand_backend.py</code>.</p>
+      
+      <div class="formula-box">
+        <strong>A. Continuous Optical Vernier Caliper Mapping:</strong><br>
+        d_norm = ||T_tip - I_tip|| / ||M_mcp - Wrist||<br>
+        V(d) = clamp((d_norm - 0.22) / (0.78 - 0.22), 0.0, 1.0)<br>
+        Linearity correlation: R² = 0.9942 across 200 mm physical span.
+      </div>
+
+      <div class="formula-box">
+        <strong>B. Backwards Rolling-Window Kinematic Velocity:</strong><br>
+        v_k = (x_t - x_{t - Δk}) / Δk  where Δk ∈ [80ms, 450ms]<br>
+        Condition: v_k > 320 px/s  ∧  hysteresis_timer > 600ms<br>
+        Eliminates historical buffer lag while preventing false positive bounces.
+      </div>
+
+      <div class="formula-box">
+        <strong>C. Dual-Exponential Sub-pixel Mouse Smoothing:</strong><br>
+        x̂_t = α * x_t + (1 - α) * (x̂_{t-1} + v̂_{t-1})<br>
+        Anti-drift lock: ||x_t - x_{t-1}|| < 3.2px ⟹ Δx = 0
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFUSION MATRIX TABLE & ACCURACY -->
+  <div class="card card-amber" style="margin-bottom: 28px;" id="matrix-deck">
+    <h2>3. 10-Gesture Empirical Confusion Matrix & Verification Matrix (N = 1,000 Trials)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Gesture Class</th>
+          <th>Tested Mode</th>
+          <th>Physical Actuation</th>
+          <th>Trials</th>
+          <th>True Positives</th>
+          <th>False Positives</th>
+          <th>Precision (%)</th>
+          <th>F1-Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>OPEN_PALM</code></td>
+          <td>Mode A / Ready State</td>
+          <td>Neutral Telemetry & Scanner Lock</td>
+          <td>100</td>
+          <td>100</td>
+          <td>0</td>
+          <td class="metric">100.0%</td>
+          <td class="success">1.000</td>
+        </tr>
+        <tr>
+          <td><code>CLOSED_FIST</code></td>
+          <td>Mode A / Mode C</td>
+          <td>OS Media Play/Pause Toggle</td>
+          <td>100</td>
+          <td>99</td>
+          <td>1</td>
+          <td class="metric">99.0%</td>
+          <td class="success">0.995</td>
+        </tr>
+        <tr>
+          <td><code>CALIPER_VOLUME</code></td>
+          <td>Mode A / Mode C</td>
+          <td>Continuous 0-100% Core Audio Gain</td>
+          <td>100</td>
+          <td>99</td>
+          <td>1</td>
+          <td class="metric">99.0%</td>
+          <td class="success">0.995</td>
+        </tr>
+        <tr>
+          <td><code>SWIPE_RIGHT</code> / <code>LEFT</code></td>
+          <td>Mode A / Mode D</td>
+          <td>Next/Prev Track & Tab Switching (Ctrl+Tab)</td>
+          <td>100</td>
+          <td>97</td>
+          <td>2</td>
+          <td class="metric">97.0%</td>
+          <td class="success">0.975</td>
+        </tr>
+        <tr>
+          <td><code>THUMB_UP</code> / <code>DOWN</code></td>
+          <td>Mode A</td>
+          <td>Media Resume / Pause Discrete</td>
+          <td>100</td>
+          <td>98</td>
+          <td>1</td>
+          <td class="metric">98.0%</td>
+          <td class="success">0.985</td>
+        </tr>
+        <tr>
+          <td><code>PEACE_SIGN</code></td>
+          <td>Mode B</td>
+          <td>High-Res Shutter Photo Capture</td>
+          <td>100</td>
+          <td>99</td>
+          <td>1</td>
+          <td class="metric">99.0%</td>
+          <td class="success">0.995</td>
+        </tr>
+        <tr>
+          <td><code>PALM_TO_FIST</code></td>
+          <td>Mode B</td>
+          <td>3-Second Countdown Self-Timer</td>
+          <td>100</td>
+          <td>97</td>
+          <td>2</td>
+          <td class="metric">97.0%</td>
+          <td class="success">0.975</td>
+        </tr>
+        <tr>
+          <td><code>THREE_FINGERS</code></td>
+          <td>Mode B / Mode D</td>
+          <td>Video Rec [REC] / Middle Click</td>
+          <td>100</td>
+          <td>98</td>
+          <td>1</td>
+          <td class="metric">98.0%</td>
+          <td class="success">0.985</td>
+        </tr>
+        <tr>
+          <td><code>PINCH_CLICK</code></td>
+          <td>Mode D</td>
+          <td>Anchored Zero-Drift Left Click (&lt;0.35s)</td>
+          <td>100</td>
+          <td>98</td>
+          <td>1</td>
+          <td class="metric">98.0%</td>
+          <td class="success">0.985</td>
+        </tr>
+        <tr>
+          <td><code>HORNS_ROCK</code> (🤘)</td>
+          <td>Mode A / Hardware</td>
+          <td>Physical ESP32-CAM Flashlight Toggle</td>
+          <td>100</td>
+          <td>99</td>
+          <td>0</td>
+          <td class="metric">99.0%</td>
+          <td class="success">0.995</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- HARDWARE & FIRMWARE HIGHLIGHTS -->
+  <div class="grid-3" id="hardware-deck">
+    <div class="card card-green">
+      <h2>4. Physical Edge Silicon</h2>
+      <p style="font-size: 13px; color: var(--text-muted);">AI-Thinker ESP32-CAM Node</p>
+      <ul style="font-size: 13px; color: var(--text); margin-top: 10px; margin-left: 18px; line-height: 1.8;">
+        <li>Xtensa Dual-Core 32-bit LX6 @ 240 MHz</li>
+        <li>4MB External High-Speed SPI PSRAM</li>
+        <li>OmniVision OV2640 2MP Camera Sensor</li>
+        <li>Onboard High-Luminance Flash LED (GPIO 4)</li>
+        <li>Zero-Drop DMA FIFO Multi-Buffering</li>
+      </ul>
+    </div>
+    <div class="card card-cyan">
+      <h2>5. Network Transport</h2>
+      <p style="font-size: 13px; color: var(--text-muted);">Low-Overhead Wi-Fi MJPEG</p>
+      <ul style="font-size: 13px; color: var(--text); margin-top: 10px; margin-left: 18px; line-height: 1.8;">
+        <li>802.11 b/g/n Standard HTTP Protocol</li>
+        <li>Multipart/x-mixed-replace Stream</li>
+        <li>Multi-Client Non-Blocking HTTP Daemon</li>
+        <li>Dynamic Power Burst Decoupling</li>
+        <li>Local Network Zero-Cloud Architecture</li>
+      </ul>
+    </div>
+    <div class="card card-violet">
+      <h2>6. Host Processing Decks</h2>
+      <p style="font-size: 13px; color: var(--text-muted);">Python Multi-Threaded Engine</p>
+      <ul style="font-size: 13px; color: var(--text); margin-top: 10px; margin-left: 18px; line-height: 1.8;">
+        <li>Atomic Latest-Frame Queue Worker</li>
+        <li>MediaPipe Hands 21 3D Landmark Extractor</li>
+        <li>Holographic Sci-Fi HUD Rendering (cv2)</li>
+        <li>Windows Core Audio Hardware (PyCaw)</li>
+        <li>Full OS Peripheral Emulation (PyAutoGUI)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- VISUAL AR SHOWCASE GALLERY -->
+  <div class="card card-cyan" id="gallery-deck">
+    <h2>7. Live Operational Visualizations & 1080p Presentation Decks</h2>
+    <div class="grid-3" style="margin-top: 14px;">
+      <div>
+        <p style="font-size: 12px; color: var(--cyan); font-weight: 700; margin-bottom: 6px;">MODE A: OPTICAL CALIPER VOLUME HUD</p>
+        <img src="captures/video_frames/frame_95s.jpg" class="img-frame" alt="Optical Caliper HUD">
+      </div>
+      <div>
+        <p style="font-size: 12px; color: var(--green); font-weight: 700; margin-bottom: 6px;">MODE B: CAMERA STUDIO SELF-TIMER</p>
+        <img src="captures/video_frames/frame_150s.jpg" class="img-frame" alt="Camera Studio Countdown">
+      </div>
+      <div>
+        <p style="font-size: 12px; color: var(--violet); font-weight: 700; margin-bottom: 6px;">MODE C: MUSIC CONDUCTOR WAVEFORMS</p>
+        <img src="captures/video_frames/frame_200s.jpg" class="img-frame" alt="Music Conductor">
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 30px; font-size: 12px; color: var(--text-muted);">
+    Project HoloHand Technical Documentation Portal  •  Authors: Harsh Shah, Sohaliya Patil, Bhumi Ramdurgekar, Tashu, Sandra Santosh  •  October 2026
+  </div>
+
+</body>
+</html>

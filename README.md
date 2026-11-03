@@ -4,8 +4,11 @@
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![MediaPipe](https://img.shields.io/badge/MediaPipe-21%20Landmarks-00C7B7.svg)](https://developers.google.com/mediapipe)
 [![ESP32-CAM](https://img.shields.io/badge/Hardware-ESP32--CAM%20OV2640-red.svg)](https://espressif.com)
+[![Vercel Live](https://img.shields.io/badge/Vercel-Live%20Showcase-black?logo=vercel)](https://holohand-xi.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Status: Complete](https://img.shields.io/badge/Status-Complete%20%26%20Verified-brightgreen.svg)]()
+
+> 🌐 **Live Web & Research Portal:** [holohand-xi.vercel.app](https://holohand-xi.vercel.app)
 
 Project HoloHand is a hardware-connected augmented-reality spatial gesture control system that turns an ultra-low-cost **AI-Thinker ESP32-CAM (OV2640)** into a sci-fi holographic vision sensor, touchless desktop controller, and dynamic music conductor station.
 

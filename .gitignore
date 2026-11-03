@@ -53,3 +53,5 @@ desktop.ini
 .vscode/
 *.sublime-project
 *.sublime-workspace
+
+.vercel
